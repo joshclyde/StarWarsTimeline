@@ -1,77 +1,50 @@
-import React from 'react';
-import {
-  FlatList,
-  SafeAreaView,
-  StatusBar,
-  StyleSheet,
-  View,
-} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import React from 'react';
+import {SafeAreaView, StatusBar, StyleSheet} from 'react-native';
 
-import {AppBar} from './src/AppBar';
-import {data} from './src/data';
-import {Row} from './src/Row';
-import {Tabs} from './src/Tabs';
-import {Text} from './src/Text';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-const FavoritesScreen = () => {
-  return (
-    <View style={styles.blackBackground}>
-      <FlatList data={data} renderItem={({item}) => <Row {...item} />} />
-    </View>
-  );
-};
+import {FavoritesScreen, AllScreen} from './src/Screens';
 
-const AllScreen = () => {
-  return (
-    <View style={styles.blackBackground}>
-      <Text>All Page</Text>
-    </View>
-  );
-};
-
-const HomeScreen = () => {
-  return (
-    <View style={styles.blackBackground}>
-      <Tabs />
-    </View>
-  );
-};
-
-const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
       <SafeAreaView style={styles.container}>
         <StatusBar barStyle="light-content" />
-        {/* <AppBar /> */}
-        <Stack.Navigator
-          screenOptions={{
+
+        <Tab.Navigator
+          screenOptions={({route}) => ({
+            tabBarIcon: ({focused, color, size}) => {
+              let iconName;
+
+              if (route.name === 'Home') {
+                iconName = focused
+                  ? 'ios-information-circle'
+                  : 'ios-information-circle-outline';
+              } else if (route.name === 'Settings') {
+                iconName = focused ? 'ios-list-box' : 'ios-list';
+              }
+
+              // You can return any component that you like here!
+              // return <Ionicons name={iconName} size={size} color={color} />;
+              return null;
+            },
+            tabBarActiveTintColor: 'white',
+            tabBarInactiveTintColor: 'gray',
             headerStyle: {
               backgroundColor: '#000000',
             },
             headerTintColor: '#fff',
-          }}>
-          <Stack.Screen
-            name="Home"
-            component={HomeScreen}
-            options={{
-              title: 'Home',
-            }}
-          />
-          <Stack.Screen
-            name="Favorites"
-            component={FavoritesScreen}
-            options={{title: 'Favorites'}}
-          />
-          <Stack.Screen
-            name="All"
-            component={AllScreen}
-            options={{title: 'All'}}
-          />
-        </Stack.Navigator>
+            tabBarStyle: {
+              backgroundColor: '#000000',
+            },
+            tabBarTintColor: '#fff',
+          })}>
+          <Tab.Screen name="Favorites" component={FavoritesScreen} />
+          <Tab.Screen name="All" component={AllScreen} />
+        </Tab.Navigator>
       </SafeAreaView>
     </NavigationContainer>
   );

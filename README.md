@@ -18,6 +18,7 @@
 ### 💧 Medium Priority
 
 - fix title's having symbols in it
+- fix title's overflowing through right side of screen
 
 ### 🧊 Low priority
 
