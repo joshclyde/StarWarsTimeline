@@ -1,20 +1,21 @@
-import {NavigationContainer} from '@react-navigation/native';
+import {NavigationContainer, DarkTheme} from '@react-navigation/native';
 import React from 'react';
 import {SafeAreaView, StatusBar, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {useLoadFavorites} from './src/storage';
 
 import {FavoritesScreen, AllScreen} from './src/Screens';
 
 const Tab = createBottomTabNavigator();
 
 const App = () => {
+  useLoadFavorites();
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={DarkTheme}>
       <SafeAreaView style={styles.container}>
         <StatusBar barStyle="light-content" />
-
         <Tab.Navigator
           screenOptions={({route}) => ({
             tabBarIcon: ({focused, color, size}) => {
@@ -26,16 +27,7 @@ const App = () => {
               }
               return <Icon name={iconName} size={size} color={color} />;
             },
-            tabBarActiveTintColor: 'white',
-            tabBarInactiveTintColor: 'gray',
-            headerStyle: {
-              backgroundColor: '#000000',
-            },
-            headerTintColor: '#fff',
-            tabBarStyle: {
-              backgroundColor: '#000000',
-            },
-            tabBarTintColor: '#fff',
+            headerShown: false,
           })}>
           <Tab.Screen name="All" component={AllScreen} />
           <Tab.Screen name="Favorites" component={FavoritesScreen} />
@@ -49,11 +41,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#000000',
-    color: '#FFFFFF',
-  },
-  blackBackground: {
-    backgroundColor: '#000000',
-    color: '#FFFFFF',
   },
 });
 

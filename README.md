@@ -9,11 +9,13 @@
 - add navigation
 - 2 tabs. favorites and all
 - use icon library
+- add favoriting books functionality
 
 ### 🔥 High Priority
 
+- search by title
 - sort by timeline (ascending and descending)
-- select books that I have read/reading
+- design favorites a bit better
 
 ### 💧 Medium Priority
 

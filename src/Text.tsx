@@ -7,7 +7,7 @@ export const Text: FC<
   } & React.ComponentProps<typeof NativeText>
 > = ({children, ...rest}) => {
   return (
-    <NativeText style={[styles.text, rest.style]} {...rest}>
+    <NativeText style={styles.text} {...rest}>
       {children}
     </NativeText>
   );
