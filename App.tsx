@@ -1,6 +1,7 @@
 import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
 import {SafeAreaView, StatusBar, StyleSheet} from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
@@ -18,18 +19,12 @@ const App = () => {
           screenOptions={({route}) => ({
             tabBarIcon: ({focused, color, size}) => {
               let iconName;
-
-              if (route.name === 'Home') {
-                iconName = focused
-                  ? 'ios-information-circle'
-                  : 'ios-information-circle-outline';
-              } else if (route.name === 'Settings') {
-                iconName = focused ? 'ios-list-box' : 'ios-list';
+              if (route.name === 'All') {
+                iconName = focused ? 'menu-book' : 'import-contacts';
+              } else {
+                iconName = focused ? 'star' : 'star-outline';
               }
-
-              // You can return any component that you like here!
-              // return <Ionicons name={iconName} size={size} color={color} />;
-              return null;
+              return <Icon name={iconName} size={size} color={color} />;
             },
             tabBarActiveTintColor: 'white',
             tabBarInactiveTintColor: 'gray',
@@ -42,8 +37,8 @@ const App = () => {
             },
             tabBarTintColor: '#fff',
           })}>
-          <Tab.Screen name="Favorites" component={FavoritesScreen} />
           <Tab.Screen name="All" component={AllScreen} />
+          <Tab.Screen name="Favorites" component={FavoritesScreen} />
         </Tab.Navigator>
       </SafeAreaView>
     </NavigationContainer>

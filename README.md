@@ -7,11 +7,11 @@
 - initialize react native app
 - scrape book data and images
 - add navigation
+- 2 tabs. favorites and all
+- use icon library
 
 ### 🔥 High Priority
 
-- 2 tabs. my books and all books
-- use icon library
 - sort by timeline (ascending and descending)
 - select books that I have read/reading
 
@@ -29,3 +29,9 @@ https://reactnative.dev/docs/environment-setup#running-your-react-native-applica
 1. Start metro `npx react-native start`
 2. Start app `npx react-native run-ios`
 
+## Icons
+
+I am using the `react-native-vector-icons` package for icons. Followed the following instructions to set it up for ios.
+
+https://github.com/oblador/react-native-vector-icons
+https://medium.com/@vimniky/how-to-use-vector-icons-in-your-react-native-project-8212ac6a8f06
