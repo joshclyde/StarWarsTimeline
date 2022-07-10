@@ -10,10 +10,10 @@
 - 2 tabs. favorites and all
 - use icon library
 - add favoriting books functionality
+- search by title
 
 ### 🔥 High Priority
 
-- search by title
 - sort by timeline (ascending and descending)
 - design favorites a bit better
 
