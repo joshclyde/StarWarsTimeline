@@ -1,11 +1,20 @@
 import React, {FC} from 'react';
-import {View, Image, StyleSheet, Pressable} from 'react-native';
+import {View, StyleSheet, Pressable} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import {Image} from '@rneui/themed';
 import {Text} from './Text';
 import {useFavoriteBook} from './storage';
 
 const convertTimeline = (timeline: number) =>
   timeline >= 0 ? `${timeline} ABY` : `${-timeline} BBY`;
+
+const useDimensions = (image: any) => {
+  const {width, height} = Image.resolveAssetSource(image);
+  return {
+    width: 64,
+    height: Math.round(height * (64 / width)),
+  };
+};
 
 export const Row: FC<{
   image: any;
@@ -14,11 +23,13 @@ export const Row: FC<{
   timelineEnd?: number;
 }> = ({title, timelineStart, timelineEnd, image}) => {
   const [isFavorite, toggle] = useFavoriteBook(title);
+  const {width, height} = useDimensions(image);
+
   return (
     <Pressable onPress={toggle}>
       <View style={styles.container}>
-        <Image style={styles.image} source={image} />
-        <View>
+        <Image style={[styles.image, {width, height}]} source={image} />
+        <View style={styles.textContainer}>
           <Text>{title}</Text>
           <Text style={styles.date}>
             {timelineEnd == null
@@ -27,19 +38,19 @@ export const Row: FC<{
                   timelineEnd,
                 )}`}
           </Text>
-          <View style={styles.favorite}>
-            <Text>
-              {isFavorite ? (
-                <>
-                  <Icon name="star" color="white" />
-                </>
-              ) : (
-                <>
-                  <Icon name="star-outline" color="gray" />
-                </>
-              )}
-            </Text>
-          </View>
+        </View>
+        <View style={styles.favorite}>
+          <Text>
+            {isFavorite ? (
+              <>
+                <Icon name="star" color="rgb(0,122,255)" size={20} />
+              </>
+            ) : (
+              <>
+                <Icon name="star-outline" color="gray" size={20} />
+              </>
+            )}
+          </Text>
         </View>
       </View>
     </Pressable>
@@ -57,14 +68,19 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   image: {
-    width: 128,
-    height: 128,
-    resizeMode: 'contain',
+    resizeMode: 'cover',
+    marginLeft: 2,
+    marginRight: 16,
+  },
+  textContainer: {
+    flexGrow: 1,
+    width: 100,
   },
   date: {
     color: '#FFE81F',
   },
   favorite: {
-    marginTop: 8,
+    paddingLeft: 16,
+    paddingRight: 16,
   },
 });
