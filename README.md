@@ -14,18 +14,21 @@
 - design favorites a bit better
 - fuzzy search
 - fix issue with books have the wrong dates for timelineStart and timelineEnd
+- add an app icon
 
 ### 🔥 High Priority
 
-- sort by timeline (ascending and descending)
-- add an app icon
 
 ### 💧 Medium Priority
 
 - fix title's having symbols in it
 - not as laggy search
+- the last book in all books does not scroll past the tab bar
+- maybe have a reading queue
 
 ### 🧊 Low priority
+
+- scrape reviews from https://www.goodreads.com
 
 ## Running
 
