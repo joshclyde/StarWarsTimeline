@@ -66,6 +66,7 @@ const styles = StyleSheet.create({
     borderColor: '#444444',
     alignItems: 'center',
     padding: 8,
+    height: 128,
   },
   image: {
     resizeMode: 'cover',
