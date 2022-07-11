@@ -28,7 +28,6 @@ export const AllScreen = () => {
   return (
     <View style={styles.container}>
       <SearchBar
-        placeholder="Type Here..."
         onChangeText={updateSearch}
         value={search}
         round
