@@ -34,6 +34,9 @@ export const AllScreen = () => {
         round
         containerStyle={styles.searchBarContainer}
         inputStyle={styles.searchBarInput}
+        autoCapitalize="none"
+        autoCorrect={false}
+        spellCheck={false}
       />
       <FlatList
         data={dataFiltered}
