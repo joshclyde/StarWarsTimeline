@@ -79,7 +79,7 @@ export const data = [
       );
     }
   }
-  contents += '];\n';
+  contents += '].sort((a, b) => a.timelineStart - b.timelineStart);\n';
   await database.writeFile('../../src/data/index.ts', contents);
 };
 

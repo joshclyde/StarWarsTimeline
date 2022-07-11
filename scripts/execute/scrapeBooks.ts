@@ -1,3 +1,3 @@
-// import {Books} from './Books';
+import {Books} from './Books';
 
-// Books.createBooksInReactNative();
+Books.createBooksInReactNative();

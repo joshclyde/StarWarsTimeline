@@ -47,7 +47,7 @@ export class Book {
           const [num, year] = x.split(' ');
           return year === 'BBY' ? -num : Number(num);
         })
-        .sort();
+        .sort((a, b) => a - b);
       if (dates) {
         return {
           timelineStart: dates[0],

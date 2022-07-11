@@ -13,6 +13,7 @@
 - search by title
 - design favorites a bit better
 - fuzzy search
+- fix issue with books have the wrong dates for timelineStart and timelineEnd
 
 ### 🔥 High Priority
 
@@ -22,8 +23,6 @@
 ### 💧 Medium Priority
 
 - fix title's having symbols in it
-- fix title's overflowing through right side of screen
-- some of the dates are weird, example Path of Destruction is 1000 BBY - 1006 BBY when it should be the other way around
 - not as laggy search
 
 ### 🧊 Low priority
