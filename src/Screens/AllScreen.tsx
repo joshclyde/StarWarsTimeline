@@ -26,7 +26,7 @@ export const AllScreen = () => {
   }, [search]);
 
   return (
-    <View>
+    <View style={styles.container}>
       <SearchBar
         placeholder="Type Here..."
         onChangeText={updateSearch}
@@ -47,6 +47,9 @@ export const AllScreen = () => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    marginBottom: 64,
+  },
   searchBarContainer: {
     backgroundColor: 'rgba(51, 170, 51,  0)',
   },
