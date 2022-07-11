@@ -1,6 +1,7 @@
 import React, {useMemo, useState} from 'react';
 import {FlatList, StyleSheet, View} from 'react-native';
 import {SearchBar} from '@rneui/themed';
+import fuzzysort from 'fuzzysort';
 
 import {data} from '../data';
 import {Row} from '../Row';
@@ -16,7 +17,12 @@ export const AllScreen = () => {
     if (search === '') {
       return data;
     }
-    return data.filter(({title}) => title.includes(search));
+    return fuzzysort
+      .go(search, data, {
+        key: 'title',
+        threshold: -100000,
+      })
+      .map(x => x.obj);
   }, [search]);
 
   return (

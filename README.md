@@ -11,16 +11,20 @@
 - use icon library
 - add favoriting books functionality
 - search by title
+- design favorites a bit better
+- fuzzy search
 
 ### 🔥 High Priority
 
 - sort by timeline (ascending and descending)
-- design favorites a bit better
+- add an app icon
 
 ### 💧 Medium Priority
 
 - fix title's having symbols in it
 - fix title's overflowing through right side of screen
+- some of the dates are weird, example Path of Destruction is 1000 BBY - 1006 BBY when it should be the other way around
+- not as laggy search
 
 ### 🧊 Low priority
 
